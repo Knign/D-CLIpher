@@ -14,7 +14,7 @@ def encrypt():
         while position < len(text):
             ciphertext[col] += text[position]
             position += key
-    return ''.join(ciphertext)  # Cipher text
+    return ''.join(ciphertext)
 
 def decrypt():
     text = input('Enter string: ')
@@ -38,11 +38,11 @@ def decrypt():
 if action == '1':
     print("---Encryption---")
     ciphertext = encrypt()
-    print("Encrypted text: " + ciphertext)
+    print("Encrypted string: " + ciphertext)
     pyperclip.copy(ciphertext)
 elif action == '2':
     print("---Decryption---")
     plaintext = decrypt()
-    print("Decrypted text: "+ plaintext)
+    print("Decrypted string: "+ plaintext)
 else:
     print("Wrong Choice!")

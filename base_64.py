@@ -7,14 +7,14 @@ def encrypt():
     string_bytes = string.encode("ascii")
     encode_bytes = base64.b64encode(string_bytes)
     encode_string = encode_bytes.decode("ascii")
-    print("Ciphered Text: " + encode_string)
+    print("Encrypted string: " + encode_string)
 
 def decrypt():
     string = input('Enter the string: ')
     string_bytes = string.encode("ascii")
     decode_bytes = base64.b64decode(string_bytes)
     decode_string = decode_bytes.decode("ascii")
-    print("Original string: " + decode_string)
+    print("Decrypted string: " + decode_string)
 
 if action == '1':
     print("---Encryption---")
