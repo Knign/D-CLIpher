@@ -23,7 +23,7 @@ def decrypt():
     numOfColumns = math.ceil(len(text) / key)
     numOfRows = key
     numOfShadedBoxes = (numOfColumns * numOfRows) - len(text)
-    plaintext = float('') * numOfColumns
+    plaintext = [''] * numOfColumns
     col = 0
     row = 0
 
@@ -38,11 +38,10 @@ def decrypt():
 if action == '1':
     print("---Encryption---")
     ciphertext = encrypt()
-    print("Encrypted string: " + ciphertext)
-    pyperclip.copy(ciphertext)
+    print("[+] Encrypted string: " + ciphertext)
 elif action == '2':
     print("---Decryption---")
     plaintext = decrypt()
-    print("Decrypted string: "+ plaintext)
+    print("[+] Decrypted string: " + plaintext)
 else:
     print("Wrong Choice!")

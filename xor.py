@@ -13,7 +13,7 @@ def encrypt():
         if key_itr >= len(key):
             key_itr = 0
 
-    print("Encrypted string: " + format(encrypt_hex))
+    print("[+] Encrypted string: " + format(encrypt_hex))
 
 def decrypt():
     text = input("Enter string: ")
@@ -32,7 +32,7 @@ def decrypt():
         if key_itr >= len(key):
             key_itr = 0
 
-    print("Decrypted string: " + format(decryp_text))
+    print("[+] Decrypted string: " + format(decryp_text))
 
 if action == '1':
     print("---Encryption---")

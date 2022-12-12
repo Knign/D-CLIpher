@@ -14,7 +14,7 @@ def encrypt():
             result += chr((ord(char) + shift - 97) % 26 + 97)
         elif char == ' ':
             result += ' '
-    print("Encrypted string: " + result)
+    print("[+] Encrypted string: " + result)
 
 def decrypt():
     text = input('Enter string: ')
@@ -30,7 +30,7 @@ def decrypt():
             result += chr((ord(char) - shift - 97) % 26 + 97)
         elif char == ' ':
             result += ' '
-    print("Decrypted string: " + result)
+    print("[+] Decrypted string: " + result)
 
 if action == '1':
     print("---Encryption---")

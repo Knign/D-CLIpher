@@ -61,7 +61,7 @@ def cipher_encryption(message, mapped_key):
             column = ord(mapped_key[i]) - 65
             encrypted_text += table[row][column]
 
-    print("Encrypted string" + format(encrypted_text))
+    print("[+] Encrypted string" + format(encrypted_text))
 
 
 def itr_count(mapped_key, message):
@@ -98,7 +98,7 @@ def cipher_decryption(message, mapped_key):
             # by doing so we get column header of ciphertext letter, which happens to be decrypted letter
             decrypted_text += chr(65 + itr_count(ord(mapped_key[i]), ord(message[i])))
 
-    print("Decrypted string: " + format(decrypted_text))
+    print("[+] Decrypted string: " + format(decrypted_text))
 
 
 def main():
