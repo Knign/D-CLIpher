@@ -1,8 +1,7 @@
-<h1>Cipher</h1>
-Various ciphers that can be used during CTFs
-<br>
-<br>
-<h2>Includes:</h2>
+# Cipher
+Various ciphers implemented in python
+
+## Includes
 
   - [Affine](https://en.wikipedia.org/wiki/Affine_cipher)
   - [Base 64](https://en.wikipedia.org/wiki/Base64)
