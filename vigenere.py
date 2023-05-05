@@ -1,6 +1,6 @@
 def msg_and_key():
-    msg = input("Enter message: ").upper()
-    key = input("Enter key: ").upper()
+    msg = input("[+] Enter text: ").upper()
+    key = input("[+] Enter key: ").upper()
 
     # variable to store mapped key
     key_map = ""
@@ -47,7 +47,7 @@ def create_vigenere_table():
     return table
 
 
-def cipher_encryption(message, mapped_key):
+def encrypt(message, mapped_key):
     table = create_vigenere_table()
     encrypted_text = ""
 
@@ -61,7 +61,7 @@ def cipher_encryption(message, mapped_key):
             column = ord(mapped_key[i]) - 65
             encrypted_text += table[row][column]
 
-    print("[+] Encrypted string" + format(encrypted_text))
+    return format(encrypted_text).capitalize()
 
 
 def itr_count(mapped_key, message):
@@ -85,7 +85,7 @@ def itr_count(mapped_key, message):
     return counter
 
 
-def cipher_decryption(message, mapped_key):
+def decrypt(message, mapped_key):
     table = create_vigenere_table()
     decrypted_text = ""
 
@@ -98,7 +98,7 @@ def cipher_decryption(message, mapped_key):
             # by doing so we get column header of ciphertext letter, which happens to be decrypted letter
             decrypted_text += chr(65 + itr_count(ord(mapped_key[i]), ord(message[i])))
 
-    print("[+] Decrypted string: " + format(decrypted_text))
+    return format(decrypted_text).capitalize()
 
 
 def main():
@@ -107,13 +107,13 @@ def main():
     if choice == 1:
         print("---Encryption---")
         message, mapped_key = msg_and_key()
-        cipher_encryption(message, mapped_key)
-
+        ciphertext = encrypt(message, mapped_key)
+        print(f"[+] Cipher text: {ciphertext}")
     elif choice == 2:
         print("---Decryption---")
         message, mapped_key = msg_and_key()
-        cipher_decryption(message, mapped_key)
-
+        plaintext = decrypt(message, mapped_key)
+        print(f"[+] Plain text: {plaintext}")
     else:
         print("Wrong choice")
 

@@ -1,47 +1,46 @@
-import pyperclip
 import math
 
-action = input("1. Encryption\n2. Decryption\nChoose (1,2): ")
+def main():
+    action = input("1. Encryption\n2. Decryption\nChoose (1/2): ")
 
-def encrypt():
-    text = input('Enter string: ')
-    key = int(input('Enter key length: '))
+    def encrypt(text, key):
+        result = [''] * key
+        for column in range(key):
+            currentindex = column
+            while currentindex < len(text):
+                result[column] += text[currentindex]
+                currentindex += key
+        return ''.join(result)
 
-    ciphertext = [''] * key
+    def decrypt(text, key):
+        numOfColumns = int(math.ceil(len(text) / key))
+        numOfRows = key
+        numOfShadedBoxes = (numOfColumns * numOfRows) - len(text)
+        result = [''] * numOfColumns
+        column = 0
+        row = 0
+        for symbol in text:
+            result[column] += symbol
+            column += 1
+            if (column == numOfColumns) or (column == numOfColumns - 1 and row >= numOfRows - numOfShadedBoxes):
+                column = 0
+                row += 1
+        return ''.join(result)
 
-    for col in range(key):
-        position = col
-        while position < len(text):
-            ciphertext[col] += text[position]
-            position += key
-    return ''.join(ciphertext)
+    if action == '1':
+        print("---Encryption---")
+        text = input("[+] Enter text: ")
+        key = int(input("[+] Enter key: "))
+        ciphertext = encrypt(text, key)
+        print(f"[+] Cipher text: {ciphertext}")
+    elif action == '2':
+        print("---Decryption---")
+        text = input("[+] Enter text: ")
+        key = int(input("[+] Enter key: "))
+        plaintext = decrypt(text, key)
+        print(f"[+] Plain text: {plaintext}")
+    else:
+        print("Wrong Choice!")
 
-def decrypt():
-    text = input('Enter string: ')
-    key = int(input('Enter key length: '))
-
-    numOfColumns = math.ceil(len(text) / key)
-    numOfRows = key
-    numOfShadedBoxes = (numOfColumns * numOfRows) - len(text)
-    plaintext = [''] * numOfColumns
-    col = 0
-    row = 0
-
-    for symbol in text:
-        plaintext[col] += symbol
-        col += 1
-        if (col == numOfColumns) or (col == numOfColumns - 1 and row >= numOfRows - numOfShadedBoxes):
-            col = 0
-            row += 1
-    return ''.join(plaintext)
-
-if action == '1':
-    print("---Encryption---")
-    ciphertext = encrypt()
-    print("[+] Encrypted string: " + ciphertext)
-elif action == '2':
-    print("---Decryption---")
-    plaintext = decrypt()
-    print("[+] Decrypted string: " + plaintext)
-else:
-    print("Wrong Choice!")
+if __name__ == '__main__':
+    main()

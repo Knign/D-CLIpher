@@ -1,8 +1,11 @@
-text = input('Enter string: ')
-translated = ''
-i = len(text) - 1
+def main():
+   text = input("[+] Enter text: ")
+   result = ''
+   i = len(text) - 1
+   while i >= 0:
+      result = result + text[i]
+      i = i - 1
+   print(f"[+] Cipher text: {result}")
 
-while i >= 0:
-   translated = translated + text[i]
-   i = i - 1
-print("[+] Encrypted string: ",translated)
+if __name__ == '__main__':
+   main()
