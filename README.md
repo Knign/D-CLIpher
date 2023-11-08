@@ -10,7 +10,7 @@
 ```
 Command line based cryptography toolkit that allows users to encrypt and decrypt their text using an algorithm of their choice.
 
-## Includes
+## Included algorithms
 
   - [Affine](https://en.wikipedia.org/wiki/Affine_cipher)
   - [Base 64](https://en.wikipedia.org/wiki/Base64)
